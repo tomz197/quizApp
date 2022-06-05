@@ -1,0 +1,126 @@
+.header{
+    padding: 1rem 10%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#name{
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+}
+.nav li{
+    list-style: none;
+}
+.nav a{
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+}
+.nav a[target="blank"]{
+    text-decoration: none;
+    border: 0.1rem solid white;
+    transition-duration: 200ms;
+}
+.nav a[target="blank"] > span{
+    transition-duration: 300ms;
+}
+.nav a[target="blank"]:hover{
+    background-color: white;
+    border: 0.1rem solid white;
+}
+.nav a[target="blank"]:hover > span{
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: 200ms ease-in-out;
+}
+
+.burgerButton{
+    cursor: pointer;
+    text-align: right;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    text-align: right;
+    margin-left: auto;
+    background: no-repeat center;
+    background-size: cover;
+}
+.burgerButton.close{
+    width: 5rem;
+    background-image: url(./close-outline.svg);
+    margin-right: 1rem;
+}
+.burgerButton.open{
+    display: none;
+    height: 3rem;
+    background-image: url(./reorder-three-outline.svg);
+}
+@media only screen and (max-width: 768px) {
+    .navLink{
+        display: none;
+    }
+    .burgerButton.open{
+        display: block;
+        height: 3rem;
+        background-image: url(./reorder-three-outline.svg);
+    }
+}
+.collapsable {
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 33%;
+    min-width: fit-content;
+    transform: translateX(100%);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transition: 500ms ease;
+
+}
+.collapsableBG {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(100%);
+    background: rgba(0,0,0, 0.3);
+    transition: 500ms ease;
+
+}
+.hideSidebar{
+    transform: translateX(100%);
+
+}
+.showSidebar{
+    transform: translateX(0%);
+}
+.collapsable li{
+    list-style: none;
+    padding: 3rem 0;
+}
+.collapsable a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 3rem;
+}
+.collapsable ul{
+    display: flex;
+    flex-direction: column;
+    padding: 20% 4rem;
+}

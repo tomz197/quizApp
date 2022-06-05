@@ -1,0 +1,8 @@
+.Main{
+    margin: auto;
+    background-color: white !important;
+    padding: 1rem;
+    min-width: min(80%, 25rem);
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+}

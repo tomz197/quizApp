@@ -1,0 +1,27 @@
+.quizRow:focus{
+    background-color: rgb(230, 230, 230);
+}
+.quizRow +.quizRow{
+    border-top: 0.1rem solid rgb(240, 240, 240);
+}
+.quizRow {
+    padding: 1rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.quizTable {
+    display: flexbox;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+.startButton{
+    padding-top: .5rem;
+    text-align: center;
+}
+.searchBar label{
+    -webkit-user-select: none; /* Safari */
+    user-select: none; 
+}
