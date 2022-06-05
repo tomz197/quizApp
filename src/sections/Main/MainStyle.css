@@ -1,5 +1,5 @@
 .Main{
-    margin: auto;
+    margin: 1rem auto;
     background-color: white !important;
     padding: 1rem;
     min-width: min(80%, 25rem);
