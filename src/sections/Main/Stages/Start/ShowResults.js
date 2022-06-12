@@ -59,17 +59,17 @@ function ShowResults(props) {
         });
     }, [makeShot]);
     let points = 0;
-    props.order.forEach((answ, i) => {
-        if (props.questions[answ].correctAnswersID === props.answers[i])
+    props.questions.forEach((question, i) => {
+        if (question.correctAnswersID === props.answers[i])
             points += 1;
     })
     useEffect(() => fire(), [fire])
     return (
         <div className="ShowResults">
             <Typography variant="h3" component="h4" align="center">Results</Typography>
-            <Typography onClick={fire} className="percent" variant="h2" component="h5" align="center" color="primary.main">{(points / props.order.length * 100).toFixed(1)}%</Typography>
+            <Typography onClick={fire} className="percent" variant="h2" component="h5" align="center" color="primary.main">{(points / props.questions.length * 100).toFixed(1)}%</Typography>
             <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
-            <p><strong>Points: </strong>{points}/{props.order.length}</p>
+            <p><strong>Points: </strong>{points}/{props.questions.length}</p>
             <Stack direction="row" spacing={1} justifyContent="center">
                 <Button variant="contained" onClick={() => props.return()}>Back to start</Button>
             </Stack>

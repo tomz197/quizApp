@@ -10,16 +10,16 @@ import React, { useState, useEffect } from 'react';
 
 function Quiz(props) {
     const data = props.data;
-    const order = props.order;
-    const [answers, setAnswers] = useState(new Array(order.length).fill(undefined));
+    const questions = props.questions;
+    const [answers, setAnswers] = useState(new Array(questions.length).fill(undefined));
     
     const [timer, setTimer] = useState(props.data.time);
     const [showResult, setShowResult] = useState(false);
     
     const [orderIndex, setOrderIndex] = useState(0);
     const moveQuestion = (x) => {
-        if (orderIndex + x < 0 || orderIndex + 1 + x > order.length) {
-            if (orderIndex + 1 + x > order.length)
+        if (orderIndex + x < 0 || orderIndex + 1 + x > questions.length) {
+            if (orderIndex + 1 + x > questions.length)
                 setShowResult(true);
             return;
         }
@@ -30,10 +30,10 @@ function Quiz(props) {
     }
 
     const handleTime = () => {
-        if (props.data.timeForQuestion && orderIndex + 1 < order.length) {
+        if (props.data.timeForQuestion && orderIndex + 1 < questions.length) {
             moveQuestion(1);
             return;
-        } else if (orderIndex + 1 >= order.length) {
+        } else if (orderIndex + 1 >= questions.length) {
             setShowResult(true);
         }
     }
@@ -59,14 +59,14 @@ function Quiz(props) {
     return (
         <div>
             {showResult ?
-                <ShowResults return={props.return} questions={data.questions} answers={answers} order={order}></ShowResults> :
-                <ShowQuestion selected={answers[orderIndex]} {...data.questions[order[orderIndex]]} time={timer} select={handleAnswerSelection}></ShowQuestion>}
+                <ShowResults return={props.return} questions={data.questions} answers={answers}></ShowResults> :
+                <ShowQuestion selected={answers[orderIndex]} {...data.questions[orderIndex]} time={timer} select={handleAnswerSelection}></ShowQuestion>}
             {!showResult ?
                 <Stack className="quizNavButtons" direction="row" justifyContent="space-between">
-                    <Typography variant="h5" component="p" ml={0} align="center">{orderIndex + 1}/{order.length}</Typography>
+                    <Typography variant="h5" component="p" ml={0} align="center">{orderIndex + 1}/{questions.length}</Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
                         {!props.data.timeForQuestion && orderIndex !== 0 ? <Button variant="outlined" onClick={() => moveQuestion(-1)}>Prev</Button> : ''}
-                        {orderIndex + 1 !== order.length ? <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> : <SendAlert send={moveQuestion}></SendAlert>}
+                        {orderIndex + 1 !== questions.length ? <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> : <SendAlert send={moveQuestion}></SendAlert>}
                     </Stack>
                 </Stack> : ''}
         </div >

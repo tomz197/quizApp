@@ -12,8 +12,9 @@ function Start(props) {
         }
         return array;
     }
+    props.data.questions.forEach((question, i) => shuffle(props.data.questions[i].answers));
     const handleStart = () => {
-        setDisplay(<Quiz return={props.return} data={props.data} order={shuffle([...Array(props.data.questions.length).keys()])}></Quiz>);
+        setDisplay(<Quiz return={props.return} data={props.data} questions={shuffle(props.data.questions)}></Quiz>);
     }
     const showInfo = <ShowInfo data={props.data} return={props.return} start={handleStart}></ShowInfo>
     const [display, setDisplay] = useState(showInfo)
