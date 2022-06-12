@@ -21,7 +21,7 @@ function AlertDialog(props) {
 
     return (
         <div>
-            <Button variant="contained" onClick={handleClickOpen}>
+            <Button disabled={props.disabled} variant="contained" onClick={handleClickOpen}>
                 send
             </Button>
             <Dialog
@@ -31,7 +31,7 @@ function AlertDialog(props) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Do you really want to end quiz?"}
+                    {"Do you want to send the answers?"}
                 </DialogTitle>
                 <DialogActions>
                     <Button onClick={handleClose}>No</Button>

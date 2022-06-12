@@ -66,7 +66,9 @@ function Quiz(props) {
                     <Typography variant="h5" component="p" ml={0} align="center">{orderIndex + 1}/{questions.length}</Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
                         {!props.data.timeForQuestion && orderIndex !== 0 ? <Button variant="outlined" onClick={() => moveQuestion(-1)}>Prev</Button> : ''}
-                        {orderIndex + 1 !== questions.length ? <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> : <SendAlert send={moveQuestion}></SendAlert>}
+                        {orderIndex + 1 !== questions.length ? 
+                        <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> :
+                        <SendAlert disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} send={moveQuestion}></SendAlert>}
                     </Stack>
                 </Stack> : ''}
         </div >
