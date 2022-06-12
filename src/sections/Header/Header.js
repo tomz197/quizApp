@@ -14,7 +14,7 @@ function Header() {
     return (
         <div id="Header">
             <Box bgcolor="primary.main" className="header">
-                <div className="nav"><h2><a href="#LandingPage" id="name">QuizApp</a></h2></div>
+                <div className="nav"><h2><a href="." id="name">QuizApp</a></h2></div>
                 <div className="nav">
                     <ul>
                         <li className="navLink"><a href=".">Home</a></li>
