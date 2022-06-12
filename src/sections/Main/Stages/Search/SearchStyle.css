@@ -1,5 +1,8 @@
 .quizRow:focus{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(230, 230, 230) !important;
+}
+.quizRow:hover{
+    background-color: rgb(245, 245, 245);
 }
 .quizRow +.quizRow{
     border-top: 0.1rem solid rgb(240, 240, 240);
@@ -10,6 +13,9 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+.quizRow p{
+    max-width: 50ch;
 }
 .quizTable {
     display: flexbox;

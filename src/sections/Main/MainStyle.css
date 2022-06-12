@@ -3,6 +3,8 @@
     background-color: white !important;
     padding: 1rem;
     min-width: min(80%, 25rem);
+    max-width: 30rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+    height: fit-content;
 }

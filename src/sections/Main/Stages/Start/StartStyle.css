@@ -16,8 +16,14 @@
     -webkit-user-select: none;
     user-select: none; 
 }
+.answerOption label{
+    padding: 0.5rem 0;
+}
 .answerOption label:hover{
     background-color: rgb(240, 240, 240);
     border-radius: .5rem;
     margin: 0;
+}
+.ShowResults{
+    text-align: center;
 }

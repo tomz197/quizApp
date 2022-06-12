@@ -13,15 +13,11 @@ function Footer() {
                 </div>
                 <div className="social">
                     <Stack direction="row" spacing={2}>
-                        <Button variant="contained">Github</Button>
-                        <Button variant="contained" href="#contained-buttons">
+                        <Button variant="contained" href="https://github.com/tomz197" target="_blank">Github</Button>
+                        <Button variant="contained" href="https://www.instagram.com/tom_z__/" target="_blank">
                             Instagram
                         </Button>
                     </Stack>
-                    {/* <ul>
-                        <li><a href="https://github.com/tomz197">Github</a></li>
-                        <li><a href="https://www.instagram.com/tom_z__/">Instagram</a></li>
-                    </ul> */}
                 </div>
             </div>
         </footer>

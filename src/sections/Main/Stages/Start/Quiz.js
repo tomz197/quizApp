@@ -11,13 +11,12 @@ import React, { useState, useEffect } from 'react';
 function Quiz(props) {
     const data = props.data;
     const order = props.order;
-    const [answers, setAnswers] = useState(new Array(order.length).fill());
-
+    const [answers, setAnswers] = useState(new Array(order.length).fill(undefined));
+    
     const [timer, setTimer] = useState(props.data.time);
     const [showResult, setShowResult] = useState(false);
-
+    
     const [orderIndex, setOrderIndex] = useState(0);
-
     const moveQuestion = (x) => {
         if (orderIndex + x < 0 || orderIndex + 1 + x > order.length) {
             if (orderIndex + 1 + x > order.length)
@@ -66,8 +65,8 @@ function Quiz(props) {
                 <Stack className="quizNavButtons" direction="row" justifyContent="space-between">
                     <Typography variant="h5" component="p" ml={0} align="center">{orderIndex + 1}/{order.length}</Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
-                        {!props.data.timeForQuestion && orderIndex !== 0 ? <Button variant="outlined" onClick={() => moveQuestion(-1)}>Last</Button> : ''}
-                        {orderIndex + 1 !== order.length ? <Button variant="contained" onClick={() => moveQuestion(1)}>Next</Button> : <SendAlert send={moveQuestion}></SendAlert>}
+                        {!props.data.timeForQuestion && orderIndex !== 0 ? <Button variant="outlined" onClick={() => moveQuestion(-1)}>Prev</Button> : ''}
+                        {orderIndex + 1 !== order.length ? <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> : <SendAlert send={moveQuestion}></SendAlert>}
                     </Stack>
                 </Stack> : ''}
         </div >

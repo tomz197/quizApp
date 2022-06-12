@@ -65,7 +65,7 @@ function ShowResults(props) {
     })
     useEffect(() => fire(), [fire])
     return (
-        <div>
+        <div className="ShowResults">
             <Typography variant="h3" component="h4" align="center">Results</Typography>
             <Typography onClick={fire} className="percent" variant="h2" component="h5" align="center" color="primary.main">{(points / props.order.length * 100).toFixed(1)}%</Typography>
             <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />

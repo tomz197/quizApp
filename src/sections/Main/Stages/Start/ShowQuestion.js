@@ -9,6 +9,7 @@ function ShowQuestion(props) {
     let questions;
     if (props.type === 'radio') {
         let inner = []
+
         props.answers.forEach(answer => {
             inner.push(<FormControlLabel key={answer.id}
                 onClick={() => props.select(answer.id)} value={answer.id}
