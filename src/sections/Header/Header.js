@@ -14,7 +14,7 @@ function Header() {
     return (
         <div id="Header">
             <Box bgcolor="primary.main" className="header">
-                <div className="nav"><h2><a href="." id="name">QuizApp</a></h2></div>
+                <div className="nav"><h2><a href="#LandingPage" id="name">QuizApp</a></h2></div>
                 <div className="nav">
                     <ul>
                         <li className="navLink"><a href=".">Home</a></li>
@@ -29,9 +29,9 @@ function Header() {
             <Box bgcolor="primary.main" className={"collapsable " + sidebarClass}>
                 <span onClick={handleSidebar} className="burgerButton close"></span>
                 <ul>
-                    <li className="navLink"><a href=".">Home</a></li>
-                    <li className="navLink"><a href=".">Create</a></li>
-                    <li className="navLink"><a href="https://tomz197.github.io/" target="_blank" rel="noreferrer">About me</a></li>
+                    <li><a onClick={handleSidebar} href=".">Home</a></li>
+                    <li><a onClick={handleSidebar} href=".">Create</a></li>
+                    <li><a onClick={handleSidebar} href="https://tomz197.github.io/" target="_blank" rel="noreferrer">About me</a></li>
                 </ul>
             </Box>
         </div >
