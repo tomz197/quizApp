@@ -13,7 +13,7 @@ function Quiz(props) {
     const questions = props.questions;
     const [answers, setAnswers] = useState(new Array(questions.length).fill(undefined));
     
-    const [timer, setTimer] = useState(props.data.time);
+    const [timer, setTimer] = useState(data.time);
     const [showResult, setShowResult] = useState(false);
     
     const [orderIndex, setOrderIndex] = useState(0);
@@ -23,14 +23,14 @@ function Quiz(props) {
                 setShowResult(true);
             return;
         }
-        if (props.data.timeForQuestion) {
+        if (data.timeForQuestion) {
             setTimer(data.time);
         }
         setOrderIndex(orderIndex + x);
     }
 
     const handleTime = () => {
-        if (props.data.timeForQuestion && orderIndex + 1 < questions.length) {
+        if (data.timeForQuestion && orderIndex + 1 < questions.length) {
             moveQuestion(1);
             return;
         } else if (orderIndex + 1 >= questions.length) {

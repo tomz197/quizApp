@@ -7,10 +7,15 @@ function Search(props) {
   const data = props.data
   const [searchFor, setSearch] = useState('');
   const [onlyUnlocked, setOnlyUnlocked] = useState(false);
-  let selected;
+  let selectedID, selected;
 
-  const handleSelect = (id) => {
-    selected = id;
+  const handleSelect = (id, element) => {
+    if(selected !== undefined) {selected.target.classList.remove('selected');}
+    if (selectedID === id)
+      props.start(selectedID);
+    selectedID = id;
+    selected = element;
+    element.target.classList.add('selected');
   }
   function handleSearch(search) {
     setSearch(search);
@@ -23,7 +28,7 @@ function Search(props) {
     <>
       <SearchBar setSearch={handleSearch} onlyUnlocked={handleLocked}></SearchBar>
       <ProductTable data={data} searchFor={searchFor} select={handleSelect} onlyUnlocked={onlyUnlocked}></ProductTable>
-      <div className="startButton"><Button size="large" variant="contained" onClick={() => props.start(selected)}>Start</Button></div>
+      <div className="startButton"><Button size="large" variant="contained" onClick={() => props.start(selectedID)}>Start</Button></div>
     </>
   );
 }

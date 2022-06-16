@@ -1,6 +1,9 @@
 .quizRow:focus{
     background-color: rgb(230, 230, 230) !important;
 }
+.selected{
+    background-color: rgb(230, 230, 230) !important;
+}
 .quizRow:hover{
     background-color: rgb(245, 245, 245);
 }
@@ -13,6 +16,9 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+.quizRow div {
+    pointer-events: none;
 }
 .quizRow p{
     max-width: 50ch;
@@ -28,6 +34,6 @@
     text-align: center;
 }
 .searchBar label{
-    -webkit-user-select: none; /* Safari */
+    -webkit-user-select: none;
     user-select: none; 
 }
