@@ -11,16 +11,23 @@ function Search(props) {
 
   const handleSelect = (id, element) => {
     if(selected !== undefined) {selected.target.classList.remove('selected');}
-    if (selectedID === id)
-      props.start(selectedID);
+    if (selectedID === id) {props.start(selectedID);}
     selectedID = id;
     selected = element;
     element.target.classList.add('selected');
   }
+  const resetSelection = () => {
+    if (selected === undefined) {return}
+    selectedID = undefined;
+    selected.target.classList.remove('selected');
+    selected = undefined;
+  }
   function handleSearch(search) {
+    resetSelection();
     setSearch(search);
   }
   function handleLocked() {
+    resetSelection();
     setOnlyUnlocked(!onlyUnlocked);
   }
 
