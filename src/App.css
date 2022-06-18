@@ -1,9 +1,10 @@
 .App {
   position: relative;
-  min-height:100vh ;
+  min-height: calc(100vh + 13rem) ;
   background: rgb(240, 240, 240);
-  display: grid;
-  grid-template-rows: fit-content auto fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 html{
   scroll-behavior: smooth;

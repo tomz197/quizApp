@@ -32,11 +32,11 @@ function Search(props) {
   }
 
   return (
-    <>
-      <SearchBar setSearch={handleSearch} onlyUnlocked={handleLocked}></SearchBar>
-      <ProductTable data={data} searchFor={searchFor} select={handleSelect} onlyUnlocked={onlyUnlocked}></ProductTable>
-      <div className="startButton"><Button size="large" variant="contained" onClick={() => props.start(selectedID)}>Start</Button></div>
-    </>
+    <div className="search">
+        <SearchBar setSearch={handleSearch} onlyUnlocked={handleLocked}></SearchBar>
+        <ProductTable data={data} searchFor={searchFor} select={handleSelect} onlyUnlocked={onlyUnlocked}></ProductTable>
+        <div className="startButton"><Button size="large" variant="contained" onClick={() => props.start(selectedID)}>Start</Button></div>
+    </div>
   );
 }
 

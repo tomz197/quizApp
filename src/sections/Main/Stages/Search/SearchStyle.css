@@ -1,3 +1,4 @@
+
 .quizRow:focus{
     background-color: rgb(230, 230, 230) !important;
 }
@@ -31,6 +32,12 @@
     flex-direction: column;
     max-height: 50vh;
     overflow-y: scroll;
+}
+@media only screen and (max-width: 30rem) {
+    .quizTable {
+        min-height: fit-content;
+        max-height: 65vh;
+    }
 }
 .startButton{
     padding-top: .5rem;

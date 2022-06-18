@@ -55,7 +55,7 @@ function ShowInfo(props) {
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setWrongPassword(false); }}
             /> : ""}
-            <Stack direction="row" spacing={1} justifyContent="center">
+            <Stack className="buttonStack" direction="row" spacing={1} justifyContent="center">
                 <Button variant="outlined" onClick={() => props.return(undefined)}>Return</Button>
                 <Button variant="contained" onClick={() => handleStart()}>Start</Button>
             </Stack>

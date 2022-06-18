@@ -2,7 +2,7 @@
     display: flexbox;
     flex-direction: column;
 }
-.showInfo > div {
+.showInfo .buttonStack {
     margin-top: 1rem;
 }
 .showQuestion p{

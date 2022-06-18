@@ -1,11 +1,11 @@
 footer{
-    margin-top: auto;
     color: black;
-    background-color: rgb(220, 220, 220);
-    padding-bottom: 2.5rem;
+    max-height: 13rem;
 }
 footer > div{
     text-align: center;
+    background-color: rgb(220, 220, 220);
+    padding-bottom: 2.5rem;
 }
 footer h4{
     margin-bottom: 0.5rem;
