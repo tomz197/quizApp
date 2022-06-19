@@ -1,6 +1,6 @@
 import './StartStyle.css';
-import ShowQuestion from "./ShowQuestion.js";
-import ShowResults from "./ShowResults.js";
+import ShowQuestion from "./DisplayQuestion.js";
+import ShowResults from "./QuizResults.js";
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 
 function Quiz(props) {
     const data = props.data;
+    
     const questions = props.questions;
     const [answers, setAnswers] = useState(new Array(questions.length).fill(undefined));
     
@@ -17,6 +18,7 @@ function Quiz(props) {
     const [showResult, setShowResult] = useState(false);
     
     const [orderIndex, setOrderIndex] = useState(0);
+
     const moveQuestion = (x) => {
         if (orderIndex + x < 0 || orderIndex + 1 + x > questions.length) {
             if (orderIndex + 1 + x > questions.length)

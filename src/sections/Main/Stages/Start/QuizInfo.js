@@ -10,12 +10,15 @@ import React, { useState, useRef, useEffect } from 'react';
 
 function ShowInfo(props) {
     const data = props.data;
+
     const [email, setEmail] = useState('');
     const [wrongEmail, setWrongEmail] = useState(false);
     const [showMail, setShowMail] = useState(false);
+    const mailField = useRef();
+
     const [password, setPassword] = useState('');
     const [wrongPassword, setWrongPassword] = useState(false);
-    const mailField = useRef();
+    
     
     const handleStart = () => {
         const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -24,9 +27,7 @@ function ShowInfo(props) {
                 props.start();
                 return;
             }
-            if (regex.test(email)) {
-                props.start();
-            } else setWrongEmail(true);
+            regex.test(email) ? props.start() : setWrongEmail(true)
         } else {
             setWrongPassword(true);
         }

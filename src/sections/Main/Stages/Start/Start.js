@@ -1,4 +1,4 @@
-import ShowInfo from './ShowInfo.js';
+import ShowInfo from './QuizInfo.js';
 import Quiz from './Quiz.js'
 import React, { useState } from 'react';
 
@@ -12,12 +12,14 @@ function Start(props) {
         }
         return array;
     }
+
     props.data.questions.forEach((_question, i) => shuffle(props.data.questions[i].answers));
     const handleStart = () => {
         setDisplay(<Quiz return={props.return} data={props.data} questions={shuffle(props.data.questions)}></Quiz>);
     }
-    const showInfo = <ShowInfo data={props.data} return={props.return} start={handleStart}></ShowInfo>
-    const [display, setDisplay] = useState(showInfo)
+
+    const [display, setDisplay] = useState(<ShowInfo data={props.data} return={props.return} start={handleStart}></ShowInfo>)
+
     return (
         <div>
             {display}

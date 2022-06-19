@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 import {useState} from 'react';
 
 function ProductRow(props) {
-    let password = props.password !== '' ? <LockIcon sx={{ color: grey[500] }}></LockIcon> : "";
+    const password = props.password !== '' && <LockIcon sx={{ color: grey[500] }}></LockIcon>;
     const [ripple, setRipple] = useState();
 
     const handleClick = (e) => {
