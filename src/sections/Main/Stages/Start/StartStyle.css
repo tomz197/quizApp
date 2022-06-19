@@ -27,3 +27,9 @@
 .ShowResults{
     text-align: center;
 }
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}

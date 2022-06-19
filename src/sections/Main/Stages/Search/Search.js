@@ -22,11 +22,11 @@ function Search(props) {
     selected.target.classList.remove('selected');
     selected = undefined;
   }
-  function handleSearch(search) {
+  const handleSearch = (search) => {
     resetSelection();
     setSearch(search);
   }
-  function handleLocked() {
+  const handleLocked = () => {
     resetSelection();
     setOnlyUnlocked(!onlyUnlocked);
   }

@@ -2,7 +2,7 @@
     margin: 0 auto;
     background-color: white !important;
     padding: 1rem;
-    min-width: min(80%, 25rem);
+    min-width: min(80%, 30rem);
     max-width: 30rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);

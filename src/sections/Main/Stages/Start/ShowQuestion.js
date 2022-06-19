@@ -24,8 +24,8 @@ function ShowQuestion(props) {
     return (
         <div className="showQuestion">
             <Typography variant="h3" component="h4" align="center">
-                {Math.floor(props.time / 60) < 10 ? '0' : ''}{Math.floor(props.time / 60)}:
-                {props.time % 60 < 10 ? '0' : ''}{props.time % 60}</Typography>
+                {Math.floor(props.time / 60) < 10 && '0'}{Math.floor(props.time / 60)}:
+                {props.time % 60 < 10 && '0'}{props.time % 60}</Typography>
             <Typography my={1} pb={1} variant="h6" component="p">{props.question}</Typography>
             {questions}
         </div>
