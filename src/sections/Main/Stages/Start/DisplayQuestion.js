@@ -6,12 +6,24 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 function ShowQuestion(props) {
+    const showResult = props.showResult === undefined ? false : true;
     let questions;
     if (props.type === 'radio') {
         let inner = []
 
         props.answers.forEach(answer => {
-            inner.push(<FormControlLabel key={answer.id}
+            let className = "";
+            let background_color = "";
+            if (showResult) {
+                className = "notInteractable "
+                className += answer.id===props.correctAnswersID||props.selected===answer.id ? "selectedResult" : "";
+                background_color = answer.id===props.correctAnswersID && "success.main";
+                background_color = props.selected!==props.correctAnswersID&&props.selected===answer.id ? "error.main" : background_color;
+                
+                inner.push(<FormControlLabel className={className} sx={{bgcolor: background_color}} key={answer.id}
+                    value={answer.id}
+                    control={<Radio checked={props.selected === answer.id} />} label={answer.answer} />)
+            }else inner.push(<FormControlLabel key={answer.id}
                 onClick={() => props.select(answer.id)} value={answer.id}
                 control={<Radio checked={props.selected === answer.id} />} label={answer.answer} />)
         });
@@ -23,9 +35,9 @@ function ShowQuestion(props) {
     }
     return (
         <div className="showQuestion">
-            <Typography variant="h3" component="h4" align="center">
+            {!showResult && <Typography variant="h3" component="h4" align="center">
                 {Math.floor(props.time / 60) < 10 && '0'}{Math.floor(props.time / 60)}:
-                {props.time % 60 < 10 && '0'}{props.time % 60}</Typography>
+                {props.time % 60 < 10 && '0'}{props.time % 60}</Typography>}
             <Typography my={1} pb={1} variant="h6" component="p">{props.question}</Typography>
             {questions}
         </div>

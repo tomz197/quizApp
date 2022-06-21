@@ -15,9 +15,11 @@ const theme = createTheme({
     },
     error: {
       main: '#FF8787',
+      dark: '#ff4d4d',
     },
     success: {
       main: '#87FF93',
+      dark: '#4dff5e',
     },
     warning: {
       main: '##0aa14',

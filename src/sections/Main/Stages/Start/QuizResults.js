@@ -2,8 +2,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import ReactCanvasConfetti from "react-canvas-confetti";
+import ShowQuestion from './DisplayQuestion'
 import './StartStyle.css'
-import React, { useRef, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect, useState } from "react";
 
 const canvasStyles = {
     position: "fixed",
@@ -15,6 +16,7 @@ const canvasStyles = {
 };
 
 function ShowResults(props) {
+    const [displayedQuestion, setDisplayedQuestion] = useState();
     const refAnimationInstance = useRef(null);
 
     const getInstance = useCallback((instance) => {
@@ -58,19 +60,32 @@ function ShowResults(props) {
             startVelocity: 45
         });
     }, [makeShot]);
+    
+    useEffect(() => fire(), [fire])
+
     let points = 0;
+    let questionButtons = [];
+
     props.questions.forEach((question, i) => {
+        const background_color = question.correctAnswersID === props.answers[i] ? "success.main" : "error.main";
+        const hover_color = question.correctAnswersID === props.answers[i] ? "success.dark" : "error.dark";
+
+        questionButtons.push(<Button variant="contained" sx={{bgcolor: background_color, '&:hover': {bgcolor: hover_color}, color: "black"}} key={i} 
+        onClick={() => setDisplayedQuestion(<ShowQuestion selected={props.answers[i]} {...props.questions[i]} showResult={true}></ShowQuestion>)}>{i}</Button>)
+
         if (question.correctAnswersID === props.answers[i])
             points += 1;
-    })
-    useEffect(() => fire(), [fire])
+    });
+
     return (
         <div className="ShowResults">
             <Typography variant="h3" component="h4" align="center">Results</Typography>
             <Typography onClick={fire} className="percent" variant="h2" component="h5" align="center" color="primary.main">{(points / props.questions.length * 100).toFixed(1)}%</Typography>
             <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyles} />
             <p><strong>Points: </strong>{points}/{props.questions.length}</p>
-            <Stack direction="row" spacing={1} justifyContent="center">
+            <div className="questionButtons">{questionButtons}</div>
+            {displayedQuestion}
+            <Stack direction="row" sx={{ mt: 2 }} spacing={1} justifyContent="center">
                 <Button variant="contained" onClick={() => props.return()}>Back to start</Button>
             </Stack>
         </div>
