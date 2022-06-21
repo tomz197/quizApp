@@ -16,16 +16,16 @@ function Header() {
         <div id="Header">
             <Box bgcolor="primary.main" className="header">
                 <div className="nav">
-                    <Link to="/" id="nameLink">
+                    <Link to="quizApp/" id="nameLink">
                         <h2 id="name">QuizApp</h2>
                     </Link>
                 </div>
                 <div className="nav">
                     <ul>
-                        <Link to="/">
+                        <Link to="quizApp/">
                             <li className="navLink">Home</li>
                         </Link>
-                        <Link to="/Create">
+                        <Link to="quizApp/Create">
                             <li className="navLink">Create</li>
                         </Link>
                         <li className="navLink"><a href="https://tomz197.github.io/" target="_blank" rel="noreferrer">About me</a></li>
@@ -38,10 +38,10 @@ function Header() {
             <Box bgcolor="primary.main" className={"collapsable " + sidebarClass}>
                 <span onClick={handleSidebar} className="burgerButton close"></span>
                 <ul>
-                    <Link to="/">
+                    <Link to="quizApp/">
                         <li onClick={handleSidebar}>Home</li>
                     </Link>
-                    <Link to="/Create">
+                    <Link to="quizApp/Create">
                         <li onClick={handleSidebar}>Create</li>
                     </Link>
                     <li><a onClick={handleSidebar} href="https://tomz197.github.io/" target="_blank" rel="noreferrer">About me</a></li>

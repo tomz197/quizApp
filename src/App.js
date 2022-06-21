@@ -37,8 +37,8 @@ function App() {
         <div className="App" style={{ overflowX: 'hidden' }}>
           <Header></Header>
           <Routes>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/Create" element={<Create/>}/>
+            <Route path="quizApp/" element={<Main/>}/>
+            <Route path="quizApp/Create" element={<Create/>}/>
           </Routes>
           <Footer></Footer>
         </div>
