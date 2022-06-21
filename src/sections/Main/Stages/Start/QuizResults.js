@@ -71,7 +71,7 @@ function ShowResults(props) {
         const hover_color = question.correctAnswersID === props.answers[i] ? "success.dark" : "error.dark";
 
         questionButtons.push(<Button variant="contained" sx={{bgcolor: background_color, '&:hover': {bgcolor: hover_color}, color: "black"}} key={i} 
-        onClick={() => setDisplayedQuestion(<ShowQuestion selected={props.answers[i]} {...props.questions[i]} showResult={true}></ShowQuestion>)}>{i}</Button>)
+        onClick={() => setDisplayedQuestion(<ShowQuestion selected={props.answers[i]} {...props.questions[i]} showResult={true}></ShowQuestion>)}>{i+1}</Button>)
 
         if (question.correctAnswersID === props.answers[i])
             points += 1;

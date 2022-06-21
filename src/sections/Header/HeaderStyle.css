@@ -19,30 +19,16 @@
 .nav li{
     list-style: none;
 }
+.nav a:not(#nameLink):hover{
+    background-color: rgba(255, 255, 255, 0.1)
+}
 .nav a{
     font-weight: 700;
+    text-decoration: none;
     font-size: 1rem;
     color: white;
     margin: 0 0.5rem;
     padding: 0.5rem 1rem;
-}
-.nav a[target="blank"]{
-    text-decoration: none;
-    border: 0.1rem solid white;
-    transition-duration: 200ms;
-}
-.nav a[target="blank"] > span{
-    transition-duration: 300ms;
-}
-.nav a[target="blank"]:hover{
-    background-color: white;
-    border: 0.1rem solid white;
-}
-.nav a[target="blank"]:hover > span{
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: 200ms ease-in-out;
 }
 
 .burgerButton{

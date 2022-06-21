@@ -2,7 +2,7 @@ import './CreateStyle.css';
 
 function Create() {
     return (
-        <h1>Comming soon</h1>
+        <h1 className="Create">Coming soon</h1>
     );
 }
 

@@ -2,7 +2,9 @@ import './App.css';
 import Header from "./sections/Header/Header.js";
 import Footer from "./sections/Footer/Footer.js"
 import Main from "./sections/Main/Main.js";
+import Create from "./sections/Create/Create.js";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -30,13 +32,18 @@ const theme = createTheme({
 function App() {
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App" style={{ overflowX: 'hidden' }}>
-        <Header></Header>
-        <Main></Main>
-        <Footer></Footer>
-      </div>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <div className="App" style={{ overflowX: 'hidden' }}>
+          <Header></Header>
+          <Routes>
+            <Route path="/" element={<Main/>}/>
+            <Route path="/Create" element={<Create/>}/>
+          </Routes>
+          <Footer></Footer>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 
