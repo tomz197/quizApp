@@ -10,7 +10,7 @@ function ProductRow(props) {
 
     const handleClick = (e) => {
         props.select(props.id, e);
-        setRipple(<span className="ripple" onAnimationEnd={() => setRipple(undefined)} style={{left: e.clientX-e.target.offsetLeft, top: e.clientY-e.target.offsetTop}}></span>);
+        setRipple(<span className="ripple" onAnimationEnd={() => setRipple(undefined)} style={{left: e.clientX-e.target.offsetLeft, top: e.clientY-e.target.offsetTop+window.pageYOffset}}></span>);
     }
     
     return (
