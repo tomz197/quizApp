@@ -9,6 +9,9 @@
     border-bottom: 0.05rem solid rgb(0, 0, 0);
     text-align: left;
 }
+.showQuestion span{
+    text-align: left;
+}
 .showQuestion .notInteractable {
     pointer-events: none;
 }
