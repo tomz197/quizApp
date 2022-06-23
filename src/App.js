@@ -3,6 +3,8 @@ import Header from "./sections/Header/Header.js";
 import Footer from "./sections/Footer/Footer.js"
 import Main from "./sections/Main/Main.js";
 import Create from "./sections/Create/Create.js";
+import { useState } from 'react';
+import { QuizContext } from './QuizContext.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -29,21 +31,25 @@ const theme = createTheme({
   },
 });
 
-function App() {
 
+function App() {
+  const [quizStarted, setQuizStarted] = useState(false);
+  
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <div className="App" style={{ overflowX: 'hidden' }}>
-          <Header></Header>
-          <Routes>
-            <Route path="quizApp/" element={<Main/>}/>
-            <Route path="quizApp/Create" element={<Create/>}/>
-          </Routes>
-          <Footer></Footer>
-        </div>
-      </ThemeProvider>
-    </Router>
+    <QuizContext.Provider value={{quizStarted, setQuizStarted}}>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <div className="App" style={{ overflowX: 'hidden' }}>
+            <Header></Header>
+            <Routes>
+              <Route path="quizApp/" element={<Main/>}/>
+              <Route path="quizApp/Create" element={<Create/>}/>
+            </Routes>
+            <Footer></Footer>
+          </div>
+        </ThemeProvider>
+      </Router>
+    </QuizContext.Provider>
   );
 }
 

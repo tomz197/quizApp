@@ -16,19 +16,23 @@
     display: flex;
     align-items: center;
 }
+.nav h2 {
+    margin: 0;
+}
 .nav li{
     list-style: none;
 }
-.nav a:not(#nameLink):hover{
+.nav a:not(#nameLink):hover, .nav span:not(#nameLink):hover{
     background-color: rgba(255, 255, 255, 0.1)
 }
-.nav a{
+.nav a, .nav span{
     font-weight: 700;
     text-decoration: none;
     font-size: 1rem;
     color: white;
     margin: 0 0.5rem;
     padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
 .burgerButton{
@@ -99,7 +103,7 @@
     list-style: none;
     padding: 3rem 0;
 }
-.collapsable a{
+.collapsable a, .collapsable span{
     text-decoration: none;
     color: white;
     font-weight: 700;

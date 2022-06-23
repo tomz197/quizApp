@@ -6,9 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SendAlert from './SendAlert.js';
 
-import React, { useState, useEffect } from 'react';
+import {QuizContext} from '../../../../QuizContext'
+import React, { useState, useEffect, useContext } from 'react';
 
 function Quiz(props) {
+    // eslint-disable-next-line no-unused-vars
+    const {quizStarted, setQuizStarted} = useContext(QuizContext);
     const data = props.data;
     
     const questions = props.questions;
@@ -22,7 +25,10 @@ function Quiz(props) {
     const moveQuestion = (x) => {
         if (orderIndex + x < 0 || orderIndex + 1 + x > questions.length) {
             if (orderIndex + 1 + x > questions.length)
-                setShowResult(true);
+                {
+                    setQuizStarted(false);
+                    setShowResult(true);
+                }
             return;
         }
         if (data.timeForQuestion) {
@@ -36,6 +42,7 @@ function Quiz(props) {
             moveQuestion(1);
             return;
         } else if (orderIndex + 1 >= questions.length) {
+            setQuizStarted(false);
             setShowResult(true);
         }
     }
@@ -63,7 +70,7 @@ function Quiz(props) {
             {showResult ?
                 <ShowResults return={props.return} questions={data.questions} answers={answers}></ShowResults> :
                 <ShowQuestion selected={answers[orderIndex]} {...data.questions[orderIndex]} time={timer} select={handleAnswerSelection}></ShowQuestion>}
-            {!showResult ?
+            {!showResult &&
                 <Stack className="quizNavButtons" direction="row" justifyContent="space-between">
                     <Typography variant="h5" component="p" ml={0} align="center">{orderIndex + 1}/{questions.length}</Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
@@ -72,7 +79,7 @@ function Quiz(props) {
                         <Button disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} variant="contained" onClick={() => moveQuestion(1)}>Next</Button> :
                         <SendAlert disabled={answers[orderIndex]===undefined&&data.timeForQuestion ? true : false} send={moveQuestion}></SendAlert>}
                     </Stack>
-                </Stack> : ''}
+                </Stack>}
         </div >
     );
 }
