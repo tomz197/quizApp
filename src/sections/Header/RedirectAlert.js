@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {QuizContext} from '../../QuizContext'
 
 
@@ -17,7 +17,6 @@ function AlertDialog(props) {
     const handleSend = () => {
         setOpen(false);
         setQuizStarted(false);
-        setShow(<Navigate to={props.redirect} />)
     };
 
     return (
@@ -35,9 +34,11 @@ function AlertDialog(props) {
                     {"This action will end the quiz."}
                 </DialogTitle>
                 <DialogActions>
-                    <Button variant="outlined" onClick={handleSend} autoFocus>
-                        I understand
-                    </Button>
+                    <Link to={props.redirect} className="continueLink">
+                        <Button variant="outlined" onClick={handleSend} autoFocus>
+                            I understand
+                        </Button>
+                    </Link>
                     <Button variant="contained" onClick={() => setOpen(!open)}>Back to quiz</Button>
                 </DialogActions>
             </Dialog>

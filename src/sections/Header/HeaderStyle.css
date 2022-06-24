@@ -114,3 +114,7 @@
     flex-direction: column;
     padding: 20% 4rem;
 }
+
+.continueLink{
+    text-decoration: none;
+}
