@@ -35,11 +35,11 @@ function AlertDialog(props) {
                 </DialogTitle>
                 <DialogActions>
                     <Link to={props.redirect} className="continueLink">
-                        <Button variant="outlined" onClick={handleSend} autoFocus>
+                        <Button variant="outlined" sx={{ m: ".5rem" }} onClick={handleSend} autoFocus>
                             I understand
                         </Button>
                     </Link>
-                    <Button variant="contained" onClick={() => setOpen(!open)}>Back to quiz</Button>
+                    <Button variant="contained" sx={{ m: ".5rem" }} onClick={() => setOpen(!open)}>Back to quiz</Button>
                 </DialogActions>
             </Dialog>
         </>
